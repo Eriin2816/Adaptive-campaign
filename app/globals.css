@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --color-offwhite: #F5F3EC;
-  --color-warmgray: #E4E1D5;
-  --color-graphite: #696D78;
-  --color-slate: #1F2837;
-  --color-navy: #1A2C52;
-  --color-electric: #0DACC9;
-  --color-glow: #34D4F0;
-  --color-dark: #0D1620;
+  --cyan:  #00DFFC;
+  --sky:   #89CFE0;
+  --navy:  #082144;
+  --gray:  #867D93;
+  --white: #FFFFFF;
+  --dark:  #050F1F;
+  --teal:  #0DACC9;
+  --glow:  #34D4F0;
+  --light: #F4F8FF;
+  --mist:  #EAF6FF;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -24,35 +24,33 @@ html {
 }
 
 body {
-  background-color: var(--color-offwhite);
-  color: var(--color-slate);
+  background-color: var(--white);
+  color: var(--navy);
   font-feature-settings: "kern" 1, "liga" 1;
 }
 
-/* Selection color */
 ::selection {
-  background-color: rgba(13, 172, 201, 0.2);
-  color: var(--color-slate);
+  background-color: rgba(0, 223, 252, 0.2);
+  color: var(--navy);
 }
 
-/* Focus visible outline */
 :focus-visible {
-  outline: 2px solid var(--color-electric);
+  outline: 2px solid var(--cyan);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* Smooth anchor scrolling offset for sticky nav */
-[id] {
-  scroll-margin-top: 80px;
-}
+[id] { scroll-margin-top: 80px; }
+
+/* ─── Custom scrollbar ─── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--light); }
+::-webkit-scrollbar-thumb { background: var(--sky); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
 
 @layer utilities {
-  /* Noise/grain texture overlay — uses ::after so it floats above bg but below content */
-  .noise {
-    position: relative;
-  }
-
+  /* Grain texture overlay */
+  .noise { position: relative; }
   .noise::after {
     content: '';
     position: absolute;
@@ -64,43 +62,74 @@ body {
     border-radius: inherit;
   }
 
-  /* Grid dot pattern */
-  .grid-pattern {
-    background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
+  /* Circuit-board dot grid for dark sections */
+  .circuit-grid {
+    background-image:
+      radial-gradient(circle, rgba(0,223,252,0.18) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 
-  /* Electric glow border on hover */
-  .hover-glow:hover {
-    box-shadow: 0 0 0 1px rgba(13, 172, 201, 0.4), 0 8px 32px rgba(13, 172, 201, 0.15);
+  /* Subtle dot grid for light sections */
+  .dot-grid {
+    background-image:
+      radial-gradient(circle, rgba(8,33,68,0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
 
-  /* Subtle card surface */
-  .card-surface {
-    background: rgba(255, 255, 255, 0.72);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(228, 225, 213, 0.8);
+  /* Glassmorphism card — light */
+  .glass-light {
+    background: rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(137, 207, 224, 0.35);
   }
 
-  /* Dark card surface */
-  .card-dark {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+  /* Glassmorphism card — dark */
+  .glass-dark {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 223, 252, 0.15);
   }
-}
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-warmgray);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-graphite);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-electric);
+  /* Cyan glow border */
+  .cyan-border {
+    border: 1px solid rgba(0, 223, 252, 0.3);
+    box-shadow: 0 0 0 1px rgba(0, 223, 252, 0.1) inset;
+  }
+
+  /* Hover glow */
+  .hover-cyan:hover {
+    box-shadow: 0 0 0 1px rgba(0, 223, 252, 0.5), 0 8px 32px rgba(0, 223, 252, 0.2);
+  }
+
+  /* Staggered animation delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-800 { animation-delay: 800ms; }
+
+  /* Opacity-0 starting state for animated elements */
+  .animate-on-load { opacity: 0; }
+
+  /* Scan line effect */
+  .scan-line {
+    position: relative;
+    overflow: hidden;
+  }
+  .scan-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0,223,252,0.6), transparent);
+    animation: scanLine 3s linear infinite;
+    pointer-events: none;
+  }
 }
