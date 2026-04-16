@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /* ─── Animated background: floating orbs + particle dots ─── */
 function AnimatedBackground() {
@@ -104,6 +104,16 @@ function AnimatedBackground() {
 /* ─── Main Hero ─── */
 export default function HeroCampaign() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const handleUnmute = () => {
+    iframeRef.current?.contentWindow?.postMessage(
+      JSON.stringify({ event: "command", func: "unMute", args: [] }),
+      "*"
+    );
+    setMuted(false);
+  };
 
   // Staggered fade-up on load
   useEffect(() => {
@@ -268,12 +278,35 @@ export default function HeroCampaign() {
               }}
             >
               <iframe
-                src="https://www.youtube.com/embed/EbxaJYarED4?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=EbxaJYarED4"
+                ref={iframeRef}
+                src="https://www.youtube.com/embed/EbxaJYarED4?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=EbxaJYarED4&enablejsapi=1"
                 title="Adaptive AI — See How It Works"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 className="w-full h-full border-0"
               />
+
+              {/* Unmute overlay — shown until user clicks */}
+              {muted && (
+                <button
+                  onClick={handleUnmute}
+                  className="absolute inset-0 w-full h-full flex flex-col items-center justify-center gap-3 cursor-pointer border-0"
+                  style={{ background: "rgba(0,0,0,0.52)", backdropFilter: "blur(1px)" }}
+                  aria-label="Click to unmute video"
+                >
+                  {/* Speaker icon */}
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ background: "rgba(0,223,252,0.18)", border: "2px solid rgba(0,223,252,0.5)" }}>
+                    <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+                    </svg>
+                  </div>
+                  {/* Text */}
+                  <div className="text-center px-4">
+                    <p className="text-white font-bold text-sm leading-snug">Your Video Is Playing</p>
+                    <p className="text-brand-cyan font-semibold text-sm mt-0.5">Click To Unmute</p>
+                  </div>
+                </button>
+              )}
             </div>
 
             {/* Watch preview badge */}
