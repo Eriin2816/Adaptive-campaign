@@ -28,6 +28,22 @@ export default function ProcessSection() {
       <div className="absolute inset-0 circuit-grid opacity-25" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[300px] bg-brand-cyan/5 blur-[80px] rounded-full pointer-events-none" />
 
+      {/* Drifting orbs */}
+      <div className="absolute rounded-full pointer-events-none" style={{ width: 520, height: 520, top: "-20%", right: "-8%", background: "radial-gradient(circle, rgba(0,223,252,0.06) 0%, transparent 70%)", animation: "orbDrift2 24s ease-in-out infinite", filter: "blur(80px)" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ width: 400, height: 400, bottom: "-5%", left: "30%", background: "radial-gradient(circle, rgba(13,172,201,0.07) 0%, transparent 70%)", animation: "orbDrift3 18s ease-in-out infinite", filter: "blur(65px)" }} />
+
+      {/* Particle dots */}
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "10%", left: "5%",   width: 2, height: 2, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 8px rgba(0,223,252,0.8)",  animation: "particlePulse 4.5s ease-in-out 0.3s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "45%", left: "2%",   width: 3, height: 3, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 12px rgba(0,223,252,0.8)", animation: "particlePulse 5s ease-in-out 1.2s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "75%", left: "8%",   width: 2, height: 2, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 8px rgba(0,223,252,0.8)",  animation: "particlePulse 6s ease-in-out 0.8s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "15%", right: "5%",  width: 3, height: 3, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 12px rgba(0,223,252,0.8)", animation: "particlePulse 4s ease-in-out 2s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "50%", right: "3%",  width: 2, height: 2, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 8px rgba(0,223,252,0.8)",  animation: "particlePulse 5.5s ease-in-out 0s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "85%", right: "12%", width: 2, height: 2, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 8px rgba(0,223,252,0.8)",  animation: "particlePulse 4.5s ease-in-out 1.8s infinite" }} />
+
+      {/* Data flow lines */}
+      <div className="absolute pointer-events-none overflow-hidden" style={{ top: "30%", left: "0%", width: "16%", height: 1 }}><div style={{ width: "100%", height: "100%", background: "linear-gradient(90deg, transparent, rgba(0,223,252,0.45), transparent)", animation: "dataFlow 4s linear 0.5s infinite" }} /></div>
+      <div className="absolute pointer-events-none overflow-hidden" style={{ top: "65%", right: "0%", width: "13%", height: 1 }}><div style={{ width: "100%", height: "100%", background: "linear-gradient(90deg, transparent, rgba(0,223,252,0.45), transparent)", animation: "dataFlow 3.5s linear 2s infinite" }} /></div>
+
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}

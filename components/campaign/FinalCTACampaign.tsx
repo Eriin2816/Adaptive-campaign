@@ -6,6 +6,22 @@ export default function FinalCTACampaign() {
       <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-brand-teal/5 blur-[60px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-brand-sky/5 blur-[60px] pointer-events-none" />
 
+      {/* Drifting orbs */}
+      <div className="absolute rounded-full pointer-events-none" style={{ width: 450, height: 450, top: "-20%", left: "-5%", background: "radial-gradient(circle, rgba(0,223,252,0.07) 0%, transparent 70%)", animation: "orbDrift1 20s ease-in-out infinite", filter: "blur(75px)" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ width: 380, height: 380, bottom: "-15%", right: "-5%", background: "radial-gradient(circle, rgba(13,172,201,0.08) 0%, transparent 70%)", animation: "orbDrift2 26s ease-in-out infinite", filter: "blur(65px)" }} />
+
+      {/* Particle dots */}
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "15%", left: "6%",   width: 2, height: 2, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 8px rgba(0,223,252,0.8)",  animation: "particlePulse 5s ease-in-out 0.4s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "50%", left: "3%",   width: 3, height: 3, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 12px rgba(0,223,252,0.8)", animation: "particlePulse 4s ease-in-out 1.6s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "80%", left: "10%",  width: 2, height: 2, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 8px rgba(0,223,252,0.8)",  animation: "particlePulse 6s ease-in-out 0.9s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "20%", right: "7%",  width: 3, height: 3, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 12px rgba(0,223,252,0.8)", animation: "particlePulse 4.5s ease-in-out 0s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "60%", right: "4%",  width: 2, height: 2, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 8px rgba(0,223,252,0.8)",  animation: "particlePulse 5.5s ease-in-out 2s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "88%", right: "18%", width: 2, height: 2, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 8px rgba(0,223,252,0.8)",  animation: "particlePulse 4s ease-in-out 1.2s infinite" }} />
+
+      {/* Data flow lines */}
+      <div className="absolute pointer-events-none overflow-hidden" style={{ top: "35%", left: "0%", width: "15%", height: 1 }}><div style={{ width: "100%", height: "100%", background: "linear-gradient(90deg, transparent, rgba(0,223,252,0.45), transparent)", animation: "dataFlow 3.8s linear 0.7s infinite" }} /></div>
+      <div className="absolute pointer-events-none overflow-hidden" style={{ top: "70%", right: "0%", width: "12%", height: 1 }}><div style={{ width: "100%", height: "100%", background: "linear-gradient(90deg, transparent, rgba(0,223,252,0.45), transparent)", animation: "dataFlow 4.2s linear 1.8s infinite" }} /></div>
+
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
         <div data-anim="fade-in" className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-cyan/30 bg-brand-cyan/10 mb-8">

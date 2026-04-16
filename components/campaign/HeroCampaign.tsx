@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 /* ─── Animated background: floating orbs + particle dots ─── */
 function AnimatedBackground() {
@@ -96,221 +96,10 @@ function AnimatedBackground() {
         </div>
       ))}
 
-      {/* CSS keyframes injected inline */}
-      <style>{`
-        @keyframes orbDrift1 {
-          0%,100% { transform: translate(0,0) scale(1); }
-          33%      { transform: translate(60px,-40px) scale(1.1); }
-          66%      { transform: translate(-30px,50px) scale(0.95); }
-        }
-        @keyframes orbDrift2 {
-          0%,100% { transform: translate(0,0) scale(1); }
-          33%      { transform: translate(-50px,30px) scale(1.05); }
-          66%      { transform: translate(40px,-60px) scale(0.9); }
-        }
-        @keyframes orbDrift3 {
-          0%,100% { transform: translate(0,0) scale(1); opacity: 0.6; }
-          50%      { transform: translate(30px,-20px) scale(1.15); opacity: 1; }
-        }
-        @keyframes particlePulse {
-          0%,100% { opacity: 0.2; transform: scale(1); }
-          50%      { opacity: 1;   transform: scale(1.8); }
-        }
-        @keyframes dataFlow {
-          0%   { transform: translateX(-100%); opacity: 0; }
-          20%  { opacity: 1; }
-          80%  { opacity: 1; }
-          100% { transform: translateX(100%); opacity: 0; }
-        }
-        @keyframes cyanShimmer {
-          0%,100% { background-position: -200% center; }
-          50%      { background-position: 200% center; }
-        }
-        @keyframes ringPulse {
-          0%   { opacity: 0.8; transform: scale(1); }
-          100% { opacity: 0;   transform: scale(1.7); }
-        }
-        @keyframes countUp {
-          from { opacity: 0; transform: translateY(8px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </>
   );
 }
 
-/* ─── Animated stat counter ─── */
-function StatCounter({ target, suffix = "", label }: { target: number; suffix?: string; label: string }) {
-  const [count, setCount] = useState(0);
-  const [started, setStarted] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting && !started) setStarted(true); },
-      { threshold: 0.5 }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, [started]);
-
-  useEffect(() => {
-    if (!started) return;
-    let start = 0;
-    const step = target / 40;
-    const id = setInterval(() => {
-      start += step;
-      if (start >= target) { setCount(target); clearInterval(id); }
-      else setCount(Math.floor(start));
-    }, 35);
-    return () => clearInterval(id);
-  }, [started, target]);
-
-  return (
-    <div ref={ref} className="px-4 first:pl-0 last:pr-0 text-center">
-      <div
-        className="text-xl font-bold font-display"
-        style={{
-          background: "linear-gradient(90deg, #00DFFC, #34D4F0, #00DFFC)",
-          backgroundSize: "200% auto",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          animation: "cyanShimmer 3s linear infinite",
-        }}
-      >
-        {count}{suffix}
-      </div>
-      <div className="text-[10px] text-brand-sky/60 mt-0.5">{label}</div>
-    </div>
-  );
-}
-
-/* ─── Mini CRM Pipeline Card ─── */
-function PipelineCard() {
-  return (
-    <div className="bg-white rounded-xl p-3 shadow-float border border-slate-100 w-full scan-line">
-      <div className="flex items-center justify-between mb-2.5">
-        <span className="text-[10px] font-semibold text-brand-navy tracking-wide uppercase">CRM Pipeline</span>
-        <span className="text-[9px] text-emerald-500 font-medium flex items-center gap-1">
-          <span className="w-1 h-1 rounded-full bg-emerald-400 inline-block animate-pulse" />Live
-        </span>
-      </div>
-      <div className="flex gap-1.5">
-        {[
-          { label: "Lead",      count: "12", color: "bg-sky-100 text-sky-700 border-sky-200"       },
-          { label: "Contacted", count: "8",  color: "bg-amber-50 text-amber-700 border-amber-200"  },
-          { label: "Qualified", count: "5",  color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
-        ].map((stage) => (
-          <div key={stage.label} className={`flex-1 rounded-lg px-1.5 py-1.5 border text-center ${stage.color}`}>
-            <div className="text-sm font-bold">{stage.count}</div>
-            <div className="text-[8px] font-medium leading-none mt-0.5">{stage.label}</div>
-          </div>
-        ))}
-      </div>
-      <div className="mt-2.5 space-y-1">
-        {[
-          { name: "Sarah J.", stage: "Qualified", dot: "bg-emerald-500" },
-          { name: "David T.", stage: "Contacted", dot: "bg-amber-400"   },
-        ].map((lead) => (
-          <div key={lead.name} className="flex items-center gap-2 px-2 py-1 rounded-lg bg-slate-50">
-            <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${lead.dot}`} />
-            <span className="text-[9px] font-medium text-slate-700 flex-1">{lead.name}</span>
-            <span className="text-[8px] text-slate-500">{lead.stage}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* ─── Mini Automation Flow Card ─── */
-function AutomationCard() {
-  return (
-    <div className="bg-white rounded-xl p-3 shadow-float border border-slate-100 w-full">
-      <div className="flex items-center justify-between mb-2.5">
-        <span className="text-[10px] font-semibold text-brand-navy tracking-wide uppercase">Automation Flow</span>
-        <span className="text-[9px] bg-emerald-50 text-emerald-600 px-1.5 py-0.5 rounded-full border border-emerald-200">Active</span>
-      </div>
-      <div className="space-y-1.5">
-        {[
-          { icon: "⚡", label: "Trigger Lead Form", color: "bg-brand-cyan/10 border-brand-cyan/20 text-brand-teal" },
-          { icon: "✓",  label: "Check Condition",  color: "bg-amber-50 border-amber-200 text-amber-700"           },
-          { icon: "✉",  label: "Send Email + SMS", color: "bg-purple-50 border-purple-200 text-purple-700"        },
-          { icon: "＋", label: "Add to CRM",       color: "bg-emerald-50 border-emerald-200 text-emerald-700"     },
-        ].map((step) => (
-          <div key={step.label} className="flex items-center gap-2">
-            <div className={`w-5 h-5 rounded-md border flex items-center justify-center text-[10px] font-bold shrink-0 ${step.color}`}>
-              {step.icon}
-            </div>
-            <div className="text-[9px] text-slate-700 font-medium">{step.label}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* ─── Lead Notification Card ─── */
-function LeadNotifCard() {
-  return (
-    <div className="bg-brand-navy rounded-xl p-3 shadow-float border border-brand-cyan/20 w-full">
-      <div className="flex items-start gap-2">
-        <div className="w-6 h-6 rounded-full bg-brand-cyan flex items-center justify-center shrink-0">
-          <svg className="w-3 h-3 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-1.5 mb-0.5">
-            <span className="text-[9px] font-bold text-brand-cyan tracking-widest uppercase">New Lead</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse-slow" />
-          </div>
-          <div className="text-[10px] font-semibold text-white">Alex B.</div>
-          <div className="text-[9px] text-brand-sky/80 mt-0.5">HVAC Repair · Just now</div>
-        </div>
-      </div>
-      <div className="mt-2 flex gap-1.5">
-        <button className="flex-1 text-[9px] font-semibold bg-brand-cyan text-brand-navy py-1 rounded-lg">SMS Now</button>
-        <button className="flex-1 text-[9px] font-semibold bg-white/10 text-white py-1 rounded-lg border border-white/15">View Details</button>
-      </div>
-    </div>
-  );
-}
-
-/* ─── Calendar Booking Card ─── */
-function CalendarCard() {
-  const days  = ["Su","Mo","Tu","We","Th","Fr","Sa"];
-  const dates = [null,null,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-  return (
-    <div className="bg-white rounded-xl p-3 shadow-float border border-slate-100 w-full">
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-[10px] font-semibold text-brand-navy">April 2026</span>
-        <span className="text-[9px] bg-brand-cyan/10 text-brand-teal px-1.5 py-0.5 rounded-full border border-brand-cyan/20">Booking</span>
-      </div>
-      <div className="grid grid-cols-7 gap-0.5">
-        {days.map((d) => (
-          <div key={d} className="text-center text-[8px] text-slate-400 font-semibold py-0.5">{d}</div>
-        ))}
-        {dates.map((d, i) => (
-          <div
-            key={i}
-            className={`text-center text-[9px] py-0.5 rounded-md font-medium ${
-              d === 17 ? "bg-brand-cyan text-brand-navy font-bold" :
-              d === null ? "" :
-              d < 17 ? "text-slate-300" : "text-slate-700"
-            }`}
-          >
-            {d || ""}
-          </div>
-        ))}
-      </div>
-      <div className="mt-2 pt-2 border-t border-slate-100 flex items-center gap-1.5">
-        <div className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse" />
-        <span className="text-[9px] text-slate-600">Apr 17 · 6:00 PM PDT · Live Training</span>
-      </div>
-    </div>
-  );
-}
 
 /* ─── Main Hero ─── */
 export default function HeroCampaign() {
@@ -459,69 +248,45 @@ export default function HeroCampaign() {
             </div>
           </div>
 
-          {/* ── Right: Dashboard Mockup ── */}
-          <div className="relative hidden lg:block">
-            {/* Outer glow */}
-            <div className="absolute inset-0 blur-[60px] bg-brand-cyan/10 rounded-3xl scale-110" />
+          {/* ── Right: YouTube Shorts Video ── */}
+          <div className="relative hidden lg:flex justify-center items-center py-8">
+            {/* Ambient glow behind video */}
+            <div className="absolute inset-0 blur-[100px] bg-brand-cyan/8 rounded-3xl scale-110 pointer-events-none" />
 
-            <div className="relative space-y-3">
-              {/* Top row */}
-              <div className="grid grid-cols-2 gap-3">
-                <div
-                  className="animate-on-load"
-                  style={{ opacity: 0, transform: "translateX(24px)", transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.6s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.6s" }}
-                >
-                  <PipelineCard />
-                </div>
-                <div
-                  className="animate-on-load"
-                  style={{ opacity: 0, transform: "translateX(24px)", transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.75s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.75s" }}
-                >
-                  <AutomationCard />
-                </div>
-              </div>
+            {/* Outer decorative ring */}
+            <div className="absolute w-[310px] h-[560px] rounded-[32px] border border-brand-cyan/10 pointer-events-none" />
 
-              {/* Bottom row */}
-              <div className="grid grid-cols-2 gap-3">
-                <div
-                  className="animate-on-load"
-                  style={{ opacity: 0, transform: "translateX(24px)", transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.9s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.9s" }}
-                >
-                  <LeadNotifCard />
-                </div>
-                <div
-                  className="animate-on-load"
-                  style={{ opacity: 0, transform: "translateX(24px)", transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1) 1.05s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 1.05s" }}
-                >
-                  <CalendarCard />
-                </div>
-              </div>
+            {/* Video frame */}
+            <div
+              className="animate-on-load relative rounded-[20px] overflow-hidden border border-brand-cyan/25 shadow-[0_0_80px_rgba(0,223,252,0.12),0_24px_60px_rgba(0,0,0,0.5)]"
+              style={{
+                width: 270,
+                height: 480,
+                opacity: 0,
+                transform: "translateX(24px)",
+                transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.6s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.6s",
+              }}
+            >
+              <iframe
+                src="https://www.youtube.com/embed/EbxaJYarED4?rel=0&modestbranding=1"
+                title="Adaptive AI — See How It Works"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
+            </div>
 
-              {/* Stats strip with animated counters */}
-              <div
-                className="animate-on-load glass-dark rounded-xl p-3 border border-brand-cyan/15"
-                style={{ opacity: 0, transform: "translateX(24px)", transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1) 1.2s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 1.2s" }}
-              >
-                <div className="grid grid-cols-3 divide-x divide-brand-cyan/10">
-                  <StatCounter target={2400} suffix="+" label="Leads Captured" />
-                  <div className="px-4 text-center">
-                    <div
-                      className="text-xl font-bold font-display"
-                      style={{
-                        background: "linear-gradient(90deg,#00DFFC,#34D4F0,#00DFFC)",
-                        backgroundSize: "200% auto",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        animation: "cyanShimmer 3s linear infinite",
-                      }}
-                    >
-                      &lt;2 min
-                    </div>
-                    <div className="text-[10px] text-brand-sky/60 mt-0.5">Avg Response</div>
-                  </div>
-                  <StatCounter target={68} suffix="%" label="More Bookings" />
-                </div>
-              </div>
+            {/* Watch preview badge */}
+            <div
+              className="animate-on-load absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-brand-cyan/20 whitespace-nowrap"
+              style={{
+                opacity: 0,
+                transform: "translateY(10px)",
+                transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.9s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.9s",
+              }}
+            >
+              <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse-slow shrink-0" />
+              <span className="text-brand-cyan text-xs font-semibold">Watch a Quick Preview</span>
             </div>
           </div>
 

@@ -5,6 +5,22 @@ export default function TrialSection() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-cyan/8 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-brand-teal/6 blur-[80px] rounded-full pointer-events-none" />
 
+      {/* Drifting orbs */}
+      <div className="absolute rounded-full pointer-events-none" style={{ width: 480, height: 480, top: "-15%", right: "-5%", background: "radial-gradient(circle, rgba(0,223,252,0.07) 0%, transparent 70%)", animation: "orbDrift1 22s ease-in-out infinite", filter: "blur(70px)" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ width: 380, height: 380, bottom: "-10%", left: "-5%", background: "radial-gradient(circle, rgba(13,172,201,0.08) 0%, transparent 70%)", animation: "orbDrift2 28s ease-in-out infinite", filter: "blur(60px)" }} />
+
+      {/* Particle dots */}
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "12%", left: "8%",   width: 2, height: 2, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 8px rgba(0,223,252,0.8)",  animation: "particlePulse 5s ease-in-out 0s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "35%", left: "3%",   width: 3, height: 3, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 12px rgba(0,223,252,0.8)", animation: "particlePulse 4s ease-in-out 1s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "70%", left: "12%",  width: 2, height: 2, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 8px rgba(0,223,252,0.8)",  animation: "particlePulse 6s ease-in-out 2s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "18%", right: "10%", width: 3, height: 3, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 12px rgba(0,223,252,0.8)", animation: "particlePulse 4.5s ease-in-out 0.5s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "55%", right: "6%",  width: 2, height: 2, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 8px rgba(0,223,252,0.8)",  animation: "particlePulse 5.5s ease-in-out 1.5s infinite" }} />
+      <div className="absolute rounded-full pointer-events-none" style={{ top: "82%", right: "15%", width: 2, height: 2, background: "rgba(0,223,252,0.6)", boxShadow: "0 0 8px rgba(0,223,252,0.8)",  animation: "particlePulse 4s ease-in-out 3s infinite" }} />
+
+      {/* Data flow lines */}
+      <div className="absolute pointer-events-none overflow-hidden" style={{ top: "25%", left: "0%", width: "14%", height: 1 }}><div style={{ width: "100%", height: "100%", background: "linear-gradient(90deg, transparent, rgba(0,223,252,0.45), transparent)", animation: "dataFlow 3.5s linear 0s infinite" }} /></div>
+      <div className="absolute pointer-events-none overflow-hidden" style={{ top: "60%", right: "0%", width: "12%", height: 1 }}><div style={{ width: "100%", height: "100%", background: "linear-gradient(90deg, transparent, rgba(0,223,252,0.45), transparent)", animation: "dataFlow 4s linear 1.5s infinite" }} /></div>
+
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
