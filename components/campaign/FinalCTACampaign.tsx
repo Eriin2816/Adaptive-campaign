@@ -1,7 +1,6 @@
 export default function FinalCTACampaign() {
   return (
     <section className="bg-brand-dark relative overflow-hidden noise py-24 md:py-32">
-      <div className="absolute inset-0 circuit-grid opacity-25" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-brand-cyan/8 blur-[100px] pointer-events-none" />
       <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-brand-teal/5 blur-[60px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-brand-sky/5 blur-[60px] pointer-events-none" />

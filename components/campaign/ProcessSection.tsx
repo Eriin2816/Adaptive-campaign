@@ -25,7 +25,6 @@ const steps = [
 export default function ProcessSection() {
   return (
     <section className="bg-brand-navy py-20 md:py-28 relative overflow-hidden">
-      <div className="absolute inset-0 circuit-grid opacity-25" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[300px] bg-brand-cyan/5 blur-[80px] rounded-full pointer-events-none" />
 
       {/* Drifting orbs */}

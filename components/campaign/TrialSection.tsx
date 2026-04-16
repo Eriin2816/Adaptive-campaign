@@ -1,7 +1,6 @@
 export default function TrialSection() {
   return (
     <section className="bg-brand-navy py-20 md:py-28 relative overflow-hidden noise">
-      <div className="absolute inset-0 circuit-grid opacity-30" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-cyan/8 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-brand-teal/6 blur-[80px] rounded-full pointer-events-none" />
 
