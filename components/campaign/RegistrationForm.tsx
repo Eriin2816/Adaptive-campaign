@@ -435,24 +435,10 @@ export default function RegistrationForm() {
             {/* 1-on-1 interest + Book a Call CTA */}
             <div className="sm:col-span-2 mt-2">
               <div className="rounded-2xl border border-brand-cyan/20 bg-brand-cyan/5 p-5">
-                <label className="flex items-start gap-3 cursor-pointer mb-4">
-                  <div
-                    onClick={() => setForm((prev) => ({ ...prev, interested1on1: !prev.interested1on1 }))}
-                    className={`w-5 h-5 rounded border-2 flex items-center justify-center shrink-0 mt-0.5 transition-[background-color,border-color] duration-150 cursor-pointer ${form.interested1on1 ? "bg-brand-cyan border-brand-cyan" : "border-slate-300 bg-white"}`}
-                  >
-                    {form.interested1on1 && (
-                      <svg className="w-3 h-3 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    )}
-                  </div>
-                  <div>
-                    <span className="text-sm font-semibold text-brand-navy">Interested in 1-on-1 Marketing Sessions</span>
-                    <p className="text-xs text-brand-gray mt-0.5 leading-relaxed">Get personalized strategy and setup guidance directly from Adaptive AI.</p>
-                  </div>
-                </label>
+                <p className="text-sm font-semibold text-brand-navy mb-1">Interested in 1-on-1 Marketing Sessions</p>
+                <p className="text-xs text-brand-gray mb-4 leading-relaxed">Get personalized strategy and setup guidance directly from Adaptive AI.</p>
                 <a
-                  href="https://calendly.com/adaptiveautomate"
+                  href="https://go.adaptiveautomate.com/widget/booking/Q33XlmpJLqwQSZeLdJJb"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="

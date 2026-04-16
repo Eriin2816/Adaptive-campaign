@@ -76,14 +76,17 @@ export default function FinalCTACampaign() {
         </div>
 
         {/* Company strip */}
-        <div data-anim="fade-up" style={{ transitionDelay: "500ms" }} className="mt-12 pt-8 border-t border-white/8 flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-brand-sky/50">
-          <span className="font-semibold text-brand-sky/70">Adaptive AI Business Automations</span>
-          <span className="hidden sm:inline">·</span>
-          <a href="tel:3234982131" className="hover:text-brand-cyan transition-colors duration-200">(323) 498-2131</a>
-          <span className="hidden sm:inline">·</span>
-          <a href="mailto:steve@adaptiveautomate.com" className="hover:text-brand-cyan transition-colors duration-200">steve@adaptiveautomate.com</a>
-          <span className="hidden sm:inline">·</span>
-          <span>Sherman Oaks & Century Park, CA</span>
+        <div data-anim="fade-up" style={{ transitionDelay: "500ms" }} className="mt-12 pt-8 border-t border-white/8 text-sm text-brand-sky/50 text-center space-y-1.5">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+            <span className="font-semibold text-brand-sky/70 uppercase tracking-wide text-xs">Adaptive AI Business Automations</span>
+            <span className="text-white/20">|</span>
+            <a href="tel:3234982131" className="hover:text-brand-cyan transition-colors duration-200">(323) 498-2131</a>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+            <a href="mailto:steve@adaptiveautomate.com" className="hover:text-brand-cyan transition-colors duration-200">steve@adaptiveautomate.com</a>
+            <span className="text-white/20">|</span>
+            <span>Los Angeles</span>
+          </div>
         </div>
 
       </div>
