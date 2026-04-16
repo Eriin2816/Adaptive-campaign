@@ -7,23 +7,31 @@ const businessTypes = [
   "HVAC",
   "Plumbing",
   "Electrical",
-  "Pool Service",
+  "Pool Contractor",
   "Restoration",
   "Real Estate",
   "Property Management",
   "Smart Home / AV",
   "Landscaping / Lawn Care",
   "Cleaning Services",
+  "Car Dealerships",
+  "Home Security",
+  "Pest Control",
+  "Roofers",
+  "ADU Builders",
+  "Engineer",
+  "Developers",
+  "Ecommerce Business Owner",
+  "3PL Logistics Companies",
   "Other Local Service Business",
 ];
 
 const challenges = [
-  { value: "leads", label: "Generating more leads" },
-  { value: "followup", label: "Slow or inconsistent follow-up" },
-  { value: "booking", label: "Manual appointment booking" },
-  { value: "crm", label: "No organized CRM or pipeline" },
-  { value: "automation", label: "Setting up automation" },
-  { value: "other", label: "Other" },
+  { value: "intent-leads",   label: "Generating Leads through Intent Buyers" },
+  { value: "automations",    label: "Setting Up Business Automations" },
+  { value: "invoice-followup", label: "Estimate and Invoice Follow Ups" },
+  { value: "review-social",  label: "Review and Social Media Management" },
+  { value: "voice-ai",       label: "Voice AI Assistant" },
 ];
 
 const timeSlots = [
@@ -41,7 +49,7 @@ export default function RegistrationForm() {
     phone: "",
     website: "",
     businessType: "",
-    challenge: "",
+    challenges: [] as string[],
     preferredTime: "",
     message: "",
   });
@@ -50,6 +58,15 @@ export default function RegistrationForm() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const toggleChallenge = (value: string) => {
+    setForm((prev) => ({
+      ...prev,
+      challenges: prev.challenges.includes(value)
+        ? prev.challenges.filter((c) => c !== value)
+        : [...prev.challenges, value],
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -291,41 +308,60 @@ export default function RegistrationForm() {
               </select>
             </div>
 
-            {/* Biggest Challenge */}
+            {/* Biggest Challenge — multi-select */}
             <div className="sm:col-span-2">
               <fieldset>
-                <legend className="block text-sm font-semibold text-brand-navy mb-2">
+                <legend className="block text-sm font-semibold text-brand-navy mb-1">
                   Biggest Challenge Right Now <span className="text-red-400">*</span>
                 </legend>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {challenges.map((c) => (
-                    <label
-                      key={c.value}
-                      className={`
-                        flex items-center gap-2.5 px-3 py-2.5 rounded-xl border cursor-pointer
-                        transition-[background-color,border-color] duration-150 text-sm
-                        ${form.challenge === c.value
-                          ? "border-brand-cyan bg-brand-cyan/10 text-brand-teal font-medium"
-                          : "border-slate-200 bg-brand-light text-brand-gray hover:border-brand-sky hover:bg-brand-mist"
-                        }
-                      `}
-                    >
-                      <input
-                        type="radio"
-                        name="challenge"
-                        value={c.value}
-                        checked={form.challenge === c.value}
-                        onChange={handleChange}
-                        className="sr-only"
-                        required
-                      />
-                      <div className={`w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center shrink-0 ${form.challenge === c.value ? "border-brand-cyan" : "border-slate-300"}`}>
-                        {form.challenge === c.value && <div className="w-2 h-2 rounded-full bg-brand-cyan" />}
-                      </div>
-                      {c.label}
-                    </label>
-                  ))}
+                <p className="text-xs text-brand-gray mb-2.5">Select all that apply</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {challenges.map((c) => {
+                    const checked = form.challenges.includes(c.value);
+                    return (
+                      <label
+                        key={c.value}
+                        className={`
+                          flex items-center gap-3 px-4 py-3 rounded-xl border cursor-pointer
+                          transition-[background-color,border-color,box-shadow] duration-150 text-sm
+                          ${checked
+                            ? "border-brand-cyan bg-brand-cyan/10 text-brand-teal font-medium shadow-[0_0_0_1px_rgba(0,223,252,0.3)]"
+                            : "border-slate-200 bg-brand-light text-brand-gray hover:border-brand-sky hover:bg-brand-mist"
+                          }
+                        `}
+                      >
+                        <input
+                          type="checkbox"
+                          value={c.value}
+                          checked={checked}
+                          onChange={() => toggleChallenge(c.value)}
+                          className="sr-only"
+                        />
+                        {/* Custom checkbox */}
+                        <div className={`w-4 h-4 rounded border-2 flex items-center justify-center shrink-0 transition-[background-color,border-color] duration-150 ${checked ? "bg-brand-cyan border-brand-cyan" : "border-slate-300 bg-white"}`}>
+                          {checked && (
+                            <svg className="w-2.5 h-2.5 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          )}
+                        </div>
+                        {c.label}
+                      </label>
+                    );
+                  })}
                 </div>
+                {/* Hidden required-style validation hint */}
+                {form.challenges.length === 0 && (
+                  <input
+                    type="text"
+                    required
+                    value=""
+                    onChange={() => {}}
+                    className="sr-only"
+                    aria-hidden="true"
+                    tabIndex={-1}
+                  />
+                )}
               </fieldset>
             </div>
 
