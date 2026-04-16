@@ -50,16 +50,17 @@ export default function ProblemSection() {
   return (
     <section className="bg-brand-light dot-grid py-20 md:py-28 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-200 mb-4">
+          <div data-anim="fade-in" className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-200 mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
             <span className="text-red-600 text-xs font-semibold tracking-wide uppercase">Common Pain Points</span>
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-navy tracking-tight mb-4">
+          <h2 data-anim="blur-in" style={{ transitionDelay: "100ms" }} className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-navy tracking-tight mb-4">
             Sound Familiar?
           </h2>
-          <p className="text-brand-gray text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+          <p data-anim="fade-up" style={{ transitionDelay: "200ms" }} className="text-brand-gray text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             These are the exact problems our live training is designed to solve — with a system that handles all of it automatically.
           </p>
         </div>
@@ -69,16 +70,11 @@ export default function ProblemSection() {
           {problems.map((p, i) => (
             <div
               key={i}
-              className={`
-                relative bg-white rounded-2xl p-6 border border-slate-100
-                shadow-card hover:shadow-card-hover hover:-translate-y-1
-                transition-[box-shadow,transform] duration-300 group
-                ${i === 4 ? "sm:col-start-1 lg:col-start-auto" : ""}
-              `}
+              data-anim="scale-up"
+              style={{ transitionDelay: `${i * 90}ms` }}
+              className="relative bg-white rounded-2xl p-6 border border-slate-100 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-[box-shadow,transform] duration-300 group"
             >
-              {/* Red accent top line */}
               <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-red-300/60 to-transparent" />
-
               <div className="w-11 h-11 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center text-red-400 mb-4 group-hover:bg-red-100 transition-colors duration-200">
                 {p.icon}
               </div>
@@ -88,26 +84,17 @@ export default function ProblemSection() {
           ))}
 
           {/* CTA card */}
-          <div className="bg-brand-navy rounded-2xl p-6 border border-brand-cyan/20 flex flex-col justify-between">
+          <div data-anim="scale-up" style={{ transitionDelay: "450ms" }} className="bg-brand-navy rounded-2xl p-6 border border-brand-cyan/20 flex flex-col justify-between">
             <div>
               <div className="text-brand-cyan text-sm font-semibold tracking-wide mb-2">The Solution</div>
-              <h3 className="font-display font-bold text-white text-lg mb-3">
-                One Connected Automation System
-              </h3>
+              <h3 className="font-display font-bold text-white text-lg mb-3">One Connected Automation System</h3>
               <p className="text-brand-sky/70 text-sm leading-relaxed">
                 Join our live training and see how a GHL sub-account solves every one of these problems — in one platform.
               </p>
             </div>
             <a
               href="#register"
-              className="
-                mt-5 inline-flex items-center justify-center gap-2
-                px-5 py-3 rounded-xl text-sm font-bold
-                bg-brand-cyan text-brand-navy
-                hover:bg-brand-glow
-                shadow-cyan hover:shadow-cyan-lg
-                transition-[background-color,box-shadow] duration-200
-              "
+              className="mt-5 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-bold bg-brand-cyan text-brand-navy hover:bg-brand-glow shadow-cyan hover:shadow-cyan-lg transition-[background-color,box-shadow] duration-200"
             >
               Register Free
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

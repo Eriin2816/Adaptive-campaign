@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(node screenshot.mjs http://localhost:3000 hero)",
+      "Read(//d/Claude Code/Claude Code/**)",
+      "Read(//d/Claude Code/**)",
+      "Bash(node screenshot.mjs http://localhost:3000)",
+      "Bash(node -e \":*)",
+      "Bash(node screenshot.mjs http://localhost:3000 round1)",
+      "Bash(node screenshot.mjs http://localhost:3000 round2)",
+      "Bash(node screenshot.mjs http://localhost:3000 round3)",
+      "Bash(node screenshot.mjs http://localhost:3000 round4)",
+      "Bash(node screenshot.mjs http://localhost:3000 final)",
+      "Bash(cp \"d:/Claude Code/Claude Code/Adaptive Landing page/brand_assets/unnamed.png\" \"d:/Claude Code/Claude Code/Adaptive Landing page/public/avatar-1.png\")",
+      "Bash(cp \"d:/Claude Code/Claude Code/Adaptive Landing page/brand_assets/unnamed \\(1\\).png\" \"d:/Claude Code/Claude Code/Adaptive Landing page/public/avatar-2.png\")",
+      "Bash(cp \"d:/Claude Code/Claude Code/Adaptive Landing page/brand_assets/unnamed \\(2\\).png\" \"d:/Claude Code/Claude Code/Adaptive Landing page/public/avatar-3.png\")",
+      "Bash(node screenshot.mjs http://localhost:3000 header)",
+      "Bash(node screenshot.mjs http://localhost:3000 navbar-logo)",
+      "Bash(npm run:*)",
+      "Bash(node -e ':*)"
+    ],
+    "additionalDirectories": [
+      "d:\\Claude Code\\Claude Code\\Website Building"
+    ]
+  }
+}

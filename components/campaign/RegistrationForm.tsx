@@ -105,10 +105,10 @@ export default function RegistrationForm() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="tel:3237818600"
+                href="tel:3234982131"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold border border-brand-navy/15 text-brand-navy hover:bg-brand-light transition-colors duration-200"
               >
-                (323) 781-8600
+                (323) 498-2131
               </a>
               <a
                 href="mailto:steve@adaptiveautomate.com"
@@ -128,22 +128,24 @@ export default function RegistrationForm() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 mb-4">
+          <div data-anim="fade-in" className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 mb-4">
             <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse-slow" />
             <span className="text-brand-teal text-xs font-semibold tracking-wide uppercase">
               April 17, 2026 · Limited Spots
             </span>
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-navy tracking-tight mb-4">
+          <h2 data-anim="blur-in" style={{ transitionDelay: "100ms" }} className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-navy tracking-tight mb-4">
             Save Your Spot for the Live Training
           </h2>
-          <p className="text-brand-gray text-base sm:text-lg leading-relaxed">
+          <p data-anim="fade-up" style={{ transitionDelay: "200ms" }} className="text-brand-gray text-base sm:text-lg leading-relaxed">
             Register below to secure your seat and claim your 60-day free GHL trial.
           </p>
         </div>
 
         {/* Form card */}
         <form
+          data-anim="scale-up"
+          style={{ transitionDelay: "300ms" }}
           onSubmit={handleSubmit}
           className="bg-white rounded-3xl p-7 sm:p-10 shadow-float border border-slate-100"
         >
@@ -421,11 +423,11 @@ export default function RegistrationForm() {
         {/* Contact bar below form */}
         <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-brand-gray">
           <span>Questions?</span>
-          <a href="tel:3237818600" className="flex items-center gap-1.5 text-brand-navy font-medium hover:text-brand-teal transition-colors duration-200">
+          <a href="tel:3234982131" className="flex items-center gap-1.5 text-brand-navy font-medium hover:text-brand-teal transition-colors duration-200">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            (323) 781-8600
+            (323) 498-2131
           </a>
           <span className="hidden sm:inline text-slate-300">·</span>
           <a href="mailto:steve@adaptiveautomate.com" className="flex items-center gap-1.5 text-brand-navy font-medium hover:text-brand-teal transition-colors duration-200">

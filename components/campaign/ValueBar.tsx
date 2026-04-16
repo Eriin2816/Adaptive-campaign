@@ -40,7 +40,6 @@ const values = [
 export default function ValueBar() {
   return (
     <section className="bg-brand-navy py-10 relative overflow-hidden">
-      {/* Subtle cyan shimmer */}
       <div className="absolute inset-0 bg-gradient-to-r from-brand-cyan/5 via-transparent to-brand-teal/5 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -48,6 +47,8 @@ export default function ValueBar() {
           {values.map((v, i) => (
             <div
               key={i}
+              data-anim="fade-up"
+              style={{ transitionDelay: `${i * 100}ms` }}
               className="flex items-center gap-3 px-6 py-5 bg-brand-navy hover:bg-brand-cyan/5 transition-colors duration-200 group"
             >
               <div className="w-10 h-10 rounded-xl bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan shrink-0 group-hover:bg-brand-cyan/20 transition-colors duration-200">

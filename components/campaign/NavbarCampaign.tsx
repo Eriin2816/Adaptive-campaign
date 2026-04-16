@@ -21,42 +21,73 @@ export default function NavbarCampaign() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24 md:h-28">
+        <div className="flex items-center justify-between h-[110px] md:h-[120px]">
+
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-2 shrink-0">
+          <a href="#hero" className="flex items-center shrink-0">
             <Image
               src="/brand_assets/Adaptive.png"
               alt="Adaptive AI Business Automations"
-              width={160}
-              height={48}
-              className="h-[80px] w-auto object-contain"
+              width={200}
+              height={60}
+              className="h-[110px] w-auto object-contain"
               priority
             />
           </a>
 
-          {/* Training date pill — hidden on very small screens */}
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/20">
-            <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse-slow shrink-0" />
-            <span className="text-brand-cyan text-xs font-medium tracking-wide">
-              Live: April 17, 2026 · 6:00 PM PDT
-            </span>
-          </div>
-
-          {/* CTA */}
+          {/* Prominent CTA block — headline + live date */}
           <a
             href="#register"
             className="
-              hidden md:inline-flex items-center gap-2
-              px-4 py-2 rounded-lg text-sm font-semibold
-              bg-brand-cyan text-brand-navy
-              hover:bg-brand-glow
-              shadow-cyan hover:shadow-cyan-lg
-              transition-[background-color,box-shadow] duration-200
-              focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2
+              hidden md:flex flex-col items-end gap-0.5 group
+              focus-visible:outline-none focus-visible:ring-2
+              focus-visible:ring-brand-cyan focus-visible:ring-offset-2 rounded-lg
             "
           >
-            Reserve My Spot
+            {/* Live date line */}
+            <div className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-brand-cyan animate-pulse-slow shrink-0" />
+              <span className="text-brand-cyan/80 text-xs font-medium tracking-widest uppercase">
+                Live: April 17, 2026 · 6:00 PM PDT
+              </span>
+            </div>
+
+            {/* Big headline CTA */}
+            <div className="
+              flex items-center gap-2.5
+              px-5 py-2.5 rounded-xl
+              bg-brand-cyan text-brand-navy
+              group-hover:bg-brand-glow
+              shadow-cyan group-hover:shadow-cyan-lg
+              transition-[background-color,box-shadow,transform] duration-200
+              group-hover:-translate-y-0.5
+            ">
+              <span className="font-display font-bold text-lg leading-none tracking-tight">
+                Reserve My Spot
+              </span>
+              <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </div>
           </a>
+
+          {/* Mobile — compact CTA only */}
+          <a
+            href="#register"
+            className="
+              md:hidden flex flex-col items-end gap-0.5
+            "
+          >
+            <span className="text-brand-cyan text-[10px] font-medium tracking-wider">Apr 17 · 6PM PDT</span>
+            <span className="
+              px-3 py-2 rounded-lg text-sm font-bold
+              bg-brand-cyan text-brand-navy
+              shadow-cyan
+            ">
+              Reserve My Spot
+            </span>
+          </a>
+
         </div>
       </div>
     </header>

@@ -10,44 +10,29 @@ import FAQCampaign from "@/components/campaign/FAQCampaign";
 import FinalCTACampaign from "@/components/campaign/FinalCTACampaign";
 import FooterCampaign from "@/components/campaign/FooterCampaign";
 import StickyMobileCTA from "@/components/campaign/StickyMobileCTA";
+import ScrollAnimations from "@/components/campaign/ScrollAnimations";
 
 export default function CampaignPage() {
   return (
     <>
+      {/* Global scroll-triggered animation observer — runs once, watches all [data-anim] elements */}
+      <ScrollAnimations />
+
       <NavbarCampaign />
 
       <main>
-        {/* 1. Hero — headline, date, urgency, CRM mockup */}
         <HeroCampaign />
-
-        {/* 2. Value bar — 4 key trust anchors */}
         <ValueBar />
-
-        {/* 3. Problem section — pain points */}
         <ProblemSection />
-
-        {/* 4. Training benefits — what they'll learn */}
         <TrainingBenefits />
-
-        {/* 5. 60-Day free trial section */}
         <TrialSection />
-
-        {/* 6. Simple 4-step process */}
         <ProcessSection />
-
-        {/* 9. Registration / Contact form */}
         <RegistrationForm />
-
-        {/* 10. FAQ */}
         <FAQCampaign />
-
-        {/* 11. Final CTA */}
         <FinalCTACampaign />
       </main>
 
       <FooterCampaign />
-
-      {/* Sticky mobile CTA — shows after scroll */}
       <StickyMobileCTA />
     </>
   );
