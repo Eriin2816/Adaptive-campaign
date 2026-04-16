@@ -268,7 +268,7 @@ export default function HeroCampaign() {
               }}
             >
               <iframe
-                src="https://www.youtube.com/embed/EbxaJYarED4?rel=0&modestbranding=1"
+                src="https://www.youtube.com/embed/EbxaJYarED4?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=EbxaJYarED4"
                 title="Adaptive AI — See How It Works"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen

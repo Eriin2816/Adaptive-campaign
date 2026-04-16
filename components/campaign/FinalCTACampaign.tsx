@@ -33,7 +33,7 @@ export default function FinalCTACampaign() {
         <h2 data-anim="blur-in" style={{ transitionDelay: "100ms" }} className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight mb-5 leading-tight">
           Stop Losing Leads to
           <br />
-          <span className="text-brand-cyan">Slow Follow-Up</span>
+          <span style={{ background: "linear-gradient(90deg,#00DFFC 0%,#34D4F0 30%,#ffffff 50%,#34D4F0 70%,#00DFFC 100%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "cyanShimmer 4s linear infinite" }}>Slow Follow-Up</span>
         </h2>
 
         <p data-anim="fade-up" style={{ transitionDelay: "200ms" }} className="text-brand-sky/75 text-base sm:text-xl leading-relaxed max-w-2xl mx-auto mb-10">

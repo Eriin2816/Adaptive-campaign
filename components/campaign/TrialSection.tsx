@@ -34,7 +34,7 @@ export default function TrialSection() {
 
             <h2 data-anim="blur-in" style={{ transitionDelay: "100ms" }} className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
               Claim Your{" "}
-              <span className="text-brand-cyan">60-Day Free</span>{" "}
+              <span style={{ background: "linear-gradient(90deg,#00DFFC 0%,#34D4F0 30%,#ffffff 50%,#34D4F0 70%,#00DFFC 100%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "cyanShimmer 4s linear infinite" }}>60-Day Free</span>{" "}
               GHL Sub-Account Trial
             </h2>
 

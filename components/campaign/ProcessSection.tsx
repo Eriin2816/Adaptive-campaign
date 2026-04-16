@@ -52,7 +52,7 @@ export default function ProcessSection() {
             <span className="text-brand-cyan text-xs font-semibold tracking-wide uppercase">How It Works</span>
           </div>
           <h2 data-anim="blur-in" style={{ transitionDelay: "100ms" }} className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
-            Simple 4-Step Process
+            Simple <span style={{ background: "linear-gradient(90deg,#00DFFC 0%,#34D4F0 30%,#ffffff 50%,#34D4F0 70%,#00DFFC 100%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "cyanShimmer 4s linear infinite" }}>4-Step</span> Process
           </h2>
           <p data-anim="fade-up" style={{ transitionDelay: "200ms" }} className="text-brand-sky/70 text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
             From registration to live system — here's exactly what to expect.
