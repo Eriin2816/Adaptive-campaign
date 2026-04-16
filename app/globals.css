@@ -21,6 +21,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 18px; /* +2px base — all rem-based text and spacing scales proportionally */
 }
 
 body {
@@ -213,4 +214,12 @@ body {
     animation: scanLine 3s linear infinite;
     pointer-events: none;
   }
+}
+
+/* ─── Heading → paragraph breathing room ─── */
+h2 + p, h3 + p {
+  margin-top: 1.25rem;
+}
+p {
+  line-height: 1.8;
 }

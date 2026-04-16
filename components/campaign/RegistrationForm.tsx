@@ -3,26 +3,26 @@
 import { useState } from "react";
 
 const businessTypes = [
-  "Contractor (General)",
-  "HVAC",
-  "Plumbing",
-  "Electrical",
-  "Pool Contractor",
-  "Restoration",
-  "Real Estate",
-  "Property Management",
-  "Smart Home / AV",
-  "Landscaping / Lawn Care",
-  "Cleaning Services",
-  "Car Dealerships",
-  "Home Security",
-  "Pest Control",
-  "Roofers",
+  "3PL Logistics Companies",
   "ADU Builders",
-  "Engineer",
+  "Car Dealerships",
+  "Cleaning Services",
+  "Contractor (General)",
   "Developers",
   "Ecommerce Business Owner",
-  "3PL Logistics Companies",
+  "Electrical",
+  "Engineer",
+  "Home Security",
+  "HVAC",
+  "Landscaping / Lawn Care",
+  "Pest Control",
+  "Plumbing",
+  "Pool Contractor",
+  "Property Management",
+  "Real Estate",
+  "Restoration",
+  "Roofers",
+  "Smart Home / AV",
   "Other Local Service Business",
 ];
 
@@ -32,11 +32,12 @@ const challenges = [
   { value: "invoice-followup", label: "Estimate and Invoice Follow Ups" },
   { value: "review-social",  label: "Review and Social Media Management" },
   { value: "voice-ai",       label: "Voice AI Assistant" },
+  { value: "advertising",    label: "Organic and Paid Advertising" },
 ];
 
 const timeSlots = [
-  "April 17, 2026 — 6:00 PM PDT / 9:00 PM ET (Primary Session)",
-  "I'll attend the replay if I can't make it live",
+  "Every Monday — 9:00 AM PDT",
+  "Every Thursday — 6:00 PM PDT",
 ];
 
 export default function RegistrationForm() {
@@ -53,6 +54,7 @@ export default function RegistrationForm() {
     challenges: [] as string[],
     preferredTime: "",
     message: "",
+    interested1on1: false,
   });
 
   const handleChange = (
@@ -83,9 +85,10 @@ export default function RegistrationForm() {
         phone:          form.phone,
         website:        form.website,
         business_type:  form.businessType,
-        challenges:     form.challenges.join(", "),
-        preferred_time: form.preferredTime,
-        message:        form.message,
+        challenges:        form.challenges.join(", "),
+        preferred_time:    form.preferredTime,
+        message:           form.message,
+        interested_1on1:   form.interested1on1 ? "Yes" : "No",
       };
 
       const res = await fetch(
@@ -421,6 +424,47 @@ export default function RegistrationForm() {
                   transition-[background-color,border-color,box-shadow] duration-200
                 "
               />
+            </div>
+
+            {/* 1-on-1 interest + Book a Call CTA */}
+            <div className="sm:col-span-2 mt-2">
+              <div className="rounded-2xl border border-brand-cyan/20 bg-brand-cyan/5 p-5">
+                <label className="flex items-start gap-3 cursor-pointer mb-4">
+                  <div
+                    onClick={() => setForm((prev) => ({ ...prev, interested1on1: !prev.interested1on1 }))}
+                    className={`w-5 h-5 rounded border-2 flex items-center justify-center shrink-0 mt-0.5 transition-[background-color,border-color] duration-150 cursor-pointer ${form.interested1on1 ? "bg-brand-cyan border-brand-cyan" : "border-slate-300 bg-white"}`}
+                  >
+                    {form.interested1on1 && (
+                      <svg className="w-3 h-3 text-brand-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    )}
+                  </div>
+                  <div>
+                    <span className="text-sm font-semibold text-brand-navy">Interested in 1-on-1 Marketing Sessions</span>
+                    <p className="text-xs text-brand-gray mt-0.5 leading-relaxed">Get personalized strategy and setup guidance directly from Adaptive AI.</p>
+                  </div>
+                </label>
+                <a
+                  href="https://calendly.com/adaptiveautomate"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    w-full flex items-center justify-center gap-2.5
+                    px-8 py-4 rounded-xl text-base font-bold
+                    bg-brand-navy text-brand-cyan
+                    hover:bg-brand-navy/90
+                    shadow-float border border-brand-cyan/25 hover:border-brand-cyan/50
+                    transition-[background-color,border-color,box-shadow] duration-200
+                    hover:-translate-y-0.5 active:translate-y-0
+                  "
+                >
+                  Book a 30min Call
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
 
