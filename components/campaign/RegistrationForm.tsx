@@ -42,6 +42,7 @@ const timeSlots = [
 export default function RegistrationForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [form, setForm] = useState({
     fullName: "",
     businessName: "",
@@ -72,30 +73,38 @@ export default function RegistrationForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError(false);
 
-    // ─────────────────────────────────────────────────────────────────────────
-    // TODO: Connect form webhook or embed here.
-    //
-    // Option A — Form Embed:
-    //   Replace this entire <form> block with the platform embed iframe/script snippet.
-    //
-    // Option B — Webhook (recommended for custom forms):
-    //   Replace the fetch below with your webhook URL.
-    //   Example:
-    //     await fetch("https://hooks.example.com/catch/XXXXX/YYYYY", {
-    //       method: "POST",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify(form),
-    //     });
-    //
-    // Option C — Email notification via an API route:
-    //   Create /app/api/register/route.ts and POST form data there,
-    //   then forward to your CRM via their REST API or webhook.
-    // ─────────────────────────────────────────────────────────────────────────
+    try {
+      const payload = {
+        full_name:      form.fullName,
+        business_name:  form.businessName,
+        email:          form.email,
+        phone:          form.phone,
+        website:        form.website,
+        business_type:  form.businessType,
+        challenges:     form.challenges.join(", "),
+        preferred_time: form.preferredTime,
+        message:        form.message,
+      };
 
-    await new Promise((r) => setTimeout(r, 1200)); // Placeholder delay
-    setLoading(false);
-    setSubmitted(true);
+      const res = await fetch(
+        "https://services.leadconnectorhq.com/hooks/NxERAyQfhsJMdBmOZgNN/webhook-trigger/85b16dd7-81b4-43bd-afa2-e8bb7912044b",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!res.ok) throw new Error(`Webhook returned ${res.status}`);
+
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -417,6 +426,14 @@ export default function RegistrationForm() {
 
           {/* Submit */}
           <div className="mt-7">
+            {error && (
+              <div className="mb-4 flex items-start gap-3 px-4 py-3 rounded-xl border border-red-200 bg-red-50 text-red-700 text-sm">
+                <svg className="w-4 h-4 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Something went wrong submitting your registration. Please try again or contact us at <a href="mailto:steve@adaptiveautomate.com" className="underline font-medium">steve@adaptiveautomate.com</a>.</span>
+              </div>
+            )}
             <button
               type="submit"
               disabled={loading}
