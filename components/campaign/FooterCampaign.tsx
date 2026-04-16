@@ -13,7 +13,7 @@ export default function FooterCampaign() {
               alt="Adaptive AI Business Automations"
               width={200}
               height={60}
-              className="h-[102px] w-auto object-contain"
+              className="h-[132px] w-auto object-contain"
             />
           </div>
 

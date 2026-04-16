@@ -59,6 +59,8 @@ export default function FAQCampaign() {
                 key={i}
                 data-anim="fade-up"
                 style={{ transitionDelay: `${i * 80}ms` }}
+              >
+              <div
                 className={`rounded-2xl border overflow-hidden transition-[border-color,box-shadow] duration-200 ${
                   isOpen
                     ? "border-brand-cyan/30 shadow-[0_4px_20px_rgba(0,223,252,0.08)]"
@@ -84,6 +86,7 @@ export default function FAQCampaign() {
                     <p className="text-brand-gray text-sm leading-relaxed pt-4">{faq.a}</p>
                   </div>
                 </div>
+              </div>
               </div>
             );
           })}

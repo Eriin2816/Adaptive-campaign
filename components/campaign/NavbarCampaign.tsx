@@ -21,7 +21,7 @@ export default function NavbarCampaign() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative flex items-center h-[110px] md:h-[120px]">
+        <div className="relative flex items-center h-[140px] md:h-[150px]">
 
           {/* Logo — stays left */}
           <a href="#hero" className="flex items-center shrink-0">
@@ -30,7 +30,7 @@ export default function NavbarCampaign() {
               alt="Adaptive AI Business Automations"
               width={200}
               height={60}
-              className="h-[110px] w-auto object-contain"
+              className="h-[140px] w-auto object-contain"
               priority
             />
           </a>

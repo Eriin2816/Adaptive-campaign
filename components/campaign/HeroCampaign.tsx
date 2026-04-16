@@ -131,7 +131,7 @@ export default function HeroCampaign() {
     <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-screen bg-brand-dark overflow-hidden flex items-center pt-[120px]"
+      className="relative min-h-screen bg-brand-dark overflow-hidden flex items-center pt-[150px]"
     >
       {/* ── Animated background ── */}
       <AnimatedBackground />
