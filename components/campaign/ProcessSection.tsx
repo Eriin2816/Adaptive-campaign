@@ -11,8 +11,8 @@ const steps = [
   },
   {
     number: "03",
-    title: "Claim Your 60-Day Free GHL Trial",
-    desc: "After attending, you'll receive access to a GHL sub-account through Adaptive AI — completely free for 60 days.",
+    title: "Claim Your 60-Day Free Trial",
+    desc: "After attending, you'll receive access to a private automation workspace through Adaptive AI — completely free for 60 days.",
   },
   {
     number: "04",

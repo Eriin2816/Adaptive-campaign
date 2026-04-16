@@ -74,15 +74,15 @@ export default function RegistrationForm() {
     setLoading(true);
 
     // ─────────────────────────────────────────────────────────────────────────
-    // TODO: Connect GHL form embed or webhook here.
+    // TODO: Connect form webhook or embed here.
     //
-    // Option A — GHL Form Embed:
-    //   Replace this entire <form> block with the GHL embed iframe/script snippet.
+    // Option A — Form Embed:
+    //   Replace this entire <form> block with the platform embed iframe/script snippet.
     //
-    // Option B — GHL Webhook (recommended for custom forms):
-    //   Replace the fetch below with your GHL webhook URL.
+    // Option B — Webhook (recommended for custom forms):
+    //   Replace the fetch below with your webhook URL.
     //   Example:
-    //     await fetch("https://hooks.gohighlevel.com/hooks/catch/XXXXX/YYYYY", {
+    //     await fetch("https://hooks.example.com/catch/XXXXX/YYYYY", {
     //       method: "POST",
     //       headers: { "Content-Type": "application/json" },
     //       body: JSON.stringify(form),
@@ -90,7 +90,7 @@ export default function RegistrationForm() {
     //
     // Option C — Email notification via an API route:
     //   Create /app/api/register/route.ts and POST form data there,
-    //   then forward to GHL CRM via their REST API or webhook.
+    //   then forward to your CRM via their REST API or webhook.
     // ─────────────────────────────────────────────────────────────────────────
 
     await new Promise((r) => setTimeout(r, 1200)); // Placeholder delay
@@ -155,7 +155,7 @@ export default function RegistrationForm() {
             Save Your Spot for the Live Training
           </h2>
           <p data-anim="fade-up" style={{ transitionDelay: "200ms" }} className="text-brand-gray text-base sm:text-lg leading-relaxed">
-            Register below to secure your seat and claim your 60-day free GHL trial.
+            Register below to secure your seat and claim your 60-day free trial.
           </p>
         </div>
 

@@ -5,7 +5,7 @@ const values = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    label: "60-Day Free GHL Trial",
+    label: "60-Day Free Automation Trial",
     sub: "No credit card required",
   },
   {

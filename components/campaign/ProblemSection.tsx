@@ -89,7 +89,7 @@ export default function ProblemSection() {
               <div className="text-brand-cyan text-sm font-semibold tracking-wide mb-2">The Solution</div>
               <h3 className="font-display font-bold text-white text-lg mb-3">One Connected Automation System</h3>
               <p className="text-brand-sky/70 text-sm leading-relaxed">
-                Join our live training and see how a GHL sub-account solves every one of these problems — in one platform.
+                Join our live training and see how a connected business automation system solves every one of these problems — in one platform.
               </p>
             </div>
             <a

@@ -1,7 +1,7 @@
 const included = [
   {
     title: "Live Walkthrough",
-    desc: "A step-by-step demonstration of how to set up and navigate the GHL platform — no prior experience required.",
+    desc: "A step-by-step demonstration of how to set up and navigate the business automation platform — no prior experience required.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10l4.553-2.069A1 1 0 0121 8.882V15.5a1 1 0 01-1.447.894L15 14M4 6h8a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z" />
@@ -9,8 +9,8 @@ const included = [
     ),
   },
   {
-    title: "GHL Sub-Account Access",
-    desc: "Every registered attendee receives a 60-day free sub-account so you can follow along and start building immediately.",
+    title: "Private Automation Workspace",
+    desc: "Every registered attendee receives 60-day free platform access so you can follow along and start building immediately.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />

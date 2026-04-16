@@ -4,8 +4,8 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Is the GHL trial really free for 60 days?",
-    a: "Yes. Registered attendees who attend the live training will receive access to a GoHighLevel sub-account through Adaptive AI at no cost for 60 days. There is no credit card required to claim it. At the end of the trial, you can choose to continue with a paid plan or cancel — there is no automatic charge.",
+    q: "Is the 60-day trial really free?",
+    a: "Yes. Registered attendees who attend the live training will receive access to a private automation workspace through Adaptive AI at no cost for 60 days. There is no credit card required to claim it. At the end of the trial, you can choose to continue with a paid plan or cancel — there is no automatic charge.",
   },
   {
     q: "Do I need technical experience to follow along?",
@@ -17,15 +17,15 @@ const faqs = [
   },
   {
     q: "Can I use this for my local service business?",
-    a: "Absolutely. The training and the GHL sub-account are specifically designed around the workflows of local service businesses — contractors, HVAC, plumbers, restoration companies, real estate professionals, property managers, and any business that depends on booked appointments.",
+    a: "Absolutely. The training and the automation platform access are specifically designed around the workflows of local service businesses — contractors, HVAC, plumbers, restoration companies, real estate professionals, property managers, and any business that depends on booked appointments.",
   },
   {
     q: "What happens after the 60-day trial ends?",
-    a: "At the end of your trial, you'll have the option to continue your GHL sub-account on a paid plan. Adaptive AI will walk you through your options. If you decide to continue, we can help you manage, optimize, and expand your system. If you decide not to continue, your account simply closes — no penalty.",
+    a: "At the end of your trial, you'll have the option to continue your automation workspace on a paid plan. Adaptive AI will walk you through your options. If you decide to continue, we can help you manage, optimize, and expand your system. If you decide not to continue, your account simply closes — no penalty.",
   },
   {
     q: "Will Adaptive AI help me set things up?",
-    a: "Yes. In addition to the live training walkthrough, Adaptive AI provides guidance for attendees who want help configuring their sub-account. If you're interested in having us build and manage your automation system for you, we offer that as a done-for-you service. Details will be available after the training.",
+    a: "Yes. In addition to the live training walkthrough, Adaptive AI provides guidance for attendees who want help configuring their automation workspace. If you're interested in having us build and manage your automation system for you, we offer that as a done-for-you service. Details will be available after the training.",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function FAQCampaign() {
             Frequently Asked Questions
           </h2>
           <p data-anim="fade-up" style={{ transitionDelay: "200ms" }} className="text-brand-gray text-base leading-relaxed">
-            Answers to the most common questions we receive about the training and GHL trial.
+            Answers to the most common questions we receive about the training and 60-day free trial.
           </p>
         </div>
 

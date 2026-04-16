@@ -172,7 +172,7 @@ export default function HeroCampaign() {
               >
                 Get 60 Days Free
               </span>{" "}
-              Access to a GHL Sub-Account
+              Access to a Business Automation System
             </h1>
 
             {/* Subheadline */}
@@ -180,7 +180,7 @@ export default function HeroCampaign() {
               className="animate-on-load text-brand-sky/80 text-base sm:text-lg leading-relaxed mb-6 max-w-xl"
               style={{ opacity: 0, transform: "translateY(20px)", transition: "opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)" }}
             >
-              See how local service businesses use automation to capture leads, follow up instantly,
+              See how local service businesses can capture more leads, follow up instantly,
               book more appointments, and manage everything from one connected system.
             </p>
 
@@ -194,7 +194,7 @@ export default function HeroCampaign() {
               </svg>
               <p className="text-sm text-white/80 leading-relaxed">
                 <strong className="text-white">Join us live on April 17, 2026 at 6:00 PM PDT / 9:00 PM ET</strong> and
-                learn how to use a GHL sub-account to capture leads, automate follow-up, and book more appointments.
+                learn how to use a connected business automation system to capture leads, automate follow-up, and book more appointments.
               </p>
             </div>
 
@@ -221,7 +221,7 @@ export default function HeroCampaign() {
                     hover:-translate-y-0.5 active:translate-y-0
                   "
                 >
-                  Reserve My April 17 Training Spot
+                  Reserve My Training Spot
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
@@ -238,7 +238,7 @@ export default function HeroCampaign() {
                   transition-[background-color,border-color] duration-200
                 "
               >
-                Claim My 60-Day GHL Trial
+                Claim My 60-Day Trial
               </a>
             </div>
 

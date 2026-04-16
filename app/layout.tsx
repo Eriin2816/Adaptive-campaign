@@ -17,12 +17,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Free Live Training + 60-Day GHL Trial | Adaptive AI Business Automations",
+  title: "Free Live Training + 60-Day Business Automation Trial | Adaptive AI Business Automations",
   description:
-    "Join our live training on April 17, 2026 and claim a 60-day free GoHighLevel sub-account trial. Learn how to capture leads, automate follow-up, and book more appointments — built for local service businesses.",
+    "Join our live training on April 17, 2026 and claim a 60-day free business automation system trial. Learn how to capture leads, automate follow-up, and book more appointments — built for local service businesses.",
   metadataBase: new URL("https://adaptiveautomate.com"),
   openGraph: {
-    title: "Free Live Training + 60-Day GHL Trial | Adaptive AI",
+    title: "Free Live Training + 60-Day Business Automation Trial | Adaptive AI",
     description:
       "Local service businesses: see how automation captures leads, responds instantly, and books appointments on autopilot. Register for our April 17 live training.",
     type: "website",
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Live Training + 60-Day GHL Trial | Adaptive AI",
+    title: "Free Live Training + 60-Day Business Automation Trial | Adaptive AI",
     description:
-      "April 17, 2026 live training — capture leads, automate follow-up, book more appointments. Claim a 60-day free GHL sub-account.",
+      "April 17, 2026 live training — capture leads, automate follow-up, book more appointments. Claim a 60-day free business automation trial.",
   },
   robots: { index: true, follow: true },
   keywords: [
-    "GHL trial",
-    "GoHighLevel free trial",
+    "business automation trial",
+    "free automation system",
     "local business automation",
     "lead automation",
     "CRM for contractors",

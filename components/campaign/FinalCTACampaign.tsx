@@ -56,7 +56,7 @@ export default function FinalCTACampaign() {
             href="#register"
             className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-base font-semibold border border-brand-cyan/25 text-brand-cyan hover:bg-brand-cyan/10 hover:border-brand-cyan/50 transition-[background-color,border-color] duration-200"
           >
-            Claim My 60-Day GHL Trial
+            Claim My 60-Day Trial
           </a>
         </div>
 

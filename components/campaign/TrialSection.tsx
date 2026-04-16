@@ -35,11 +35,11 @@ export default function TrialSection() {
             <h2 data-anim="blur-in" style={{ transitionDelay: "100ms" }} className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
               Claim Your{" "}
               <span style={{ background: "linear-gradient(90deg,#00DFFC 0%,#34D4F0 30%,#ffffff 50%,#34D4F0 70%,#00DFFC 100%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "cyanShimmer 4s linear infinite" }}>60-Day Free</span>{" "}
-              GHL Sub-Account Trial
+              Business Automation System Trial
             </h2>
 
             <p data-anim="fade-up" style={{ transitionDelay: "200ms" }} className="text-brand-sky/80 text-base sm:text-lg leading-relaxed mb-6">
-              Every attendee who completes registration and attends the live training will receive access to a GHL sub-account through Adaptive AI — completely free for 60 days. No credit card. No obligation.
+              Every attendee who completes registration and attends the live training will receive access to a private automation workspace through Adaptive AI — completely free for 60 days. No credit card. No obligation.
             </p>
 
             <p data-anim="fade-up" style={{ transitionDelay: "300ms" }} className="text-brand-sky/70 text-sm leading-relaxed mb-8">
@@ -51,7 +51,7 @@ export default function TrialSection() {
                 href="#register"
                 className="inline-flex items-center gap-2 px-7 py-4 rounded-xl text-base font-bold bg-brand-cyan text-brand-navy hover:bg-brand-glow shadow-cyan hover:shadow-cyan-lg transition-[background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 active:translate-y-0"
               >
-                Claim My 60-Day GHL Trial
+                Claim My 60-Day Trial
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -66,8 +66,8 @@ export default function TrialSection() {
             </div>
 
             {[
-              "Full GHL sub-account access",
-              "CRM pipeline and contact management",
+              "Full access to your private automation workspace",
+              "Lead pipeline and contact management",
               "Automated SMS & email sequences",
               "Booking calendar integration",
               "Missed-call text-back setup",
@@ -93,7 +93,7 @@ export default function TrialSection() {
 
             <div className="pt-3 border-t border-brand-cyan/10">
               <p className="text-brand-sky/60 text-xs leading-relaxed">
-                This trial is made available through Adaptive AI's GHL partner account. Access is provided directly after the live training session.
+                This trial is made available through Adaptive AI platform access. Access is provided directly after the live training session.
               </p>
             </div>
           </div>
